@@ -1,0 +1,2163 @@
+test -d plugin || mkdir plugin
+test -d testsuite || mkdir testsuite
+test -d testsuite/gm2 || mkdir testsuite/gm2
+(rootme=`${PWDCMD-pwd}`; export rootme; \
+srcdir=`cd ../../gm2-floppsie/gcc; ${PWDCMD-pwd}` ; export srcdir ; \
+cd testsuite/gm2; \
+rm -f tmp-site.exp; \
+sed '/set tmpdir/ s|testsuite$|testsuite/gm2|' \
+	< ../../site.exp > tmp-site.exp; \
+/bin/sh ${srcdir}/../move-if-change tmp-site.exp site.exp; \
+EXPECT=`if [ -f ${rootme}/../expect/expect ] ; then echo ${rootme}/../expect/expect ; else echo expect ; fi` ; export EXPECT ; \
+if [ -f ${rootme}/../expect/expect ] ; then  \
+   TCL_LIBRARY=`cd .. ; cd ${srcdir}/../tcl/library ; ${PWDCMD-pwd}` ; \
+    export TCL_LIBRARY ; fi ; \
+`if [ -f ${srcdir}/../dejagnu/runtest ] ; then echo ${srcdir}/../dejagnu/runtest ; else echo runtest; fi` --tool gm2 )
+WARNING: Couldn't find the global config file.
+Test Run By brian on Thu Apr  1 22:06:36 2021
+Native configuration is x86_64-unknown-openbsd6.9
+
+		=== gm2 tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /usr/local/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /usr/local/share/dejagnu/config/unix.exp as generic interface file for target.
+Using /home/brian/gm2-floppsie/gcc/testsuite/config/default.exp as tool-and-target-specific interface file.
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/calling-c/datatypes/unbounded/run/pass/gm2.exp ...
+FAIL: gm2/calling-c/datatypes/unbounded/run/pass/m.mod compilation,  -g 
+FAIL: gm2/calling-c/datatypes/unbounded/run/pass/m.mod compilation,  -O 
+FAIL: gm2/calling-c/datatypes/unbounded/run/pass/m.mod compilation,  -O -g 
+FAIL: gm2/calling-c/datatypes/unbounded/run/pass/m.mod compilation,  -Os 
+FAIL: gm2/calling-c/datatypes/unbounded/run/pass/m.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/calling-c/datatypes/unbounded/run/pass/m.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/case/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/complex/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/complex/run/pass/gm2.exp ...
+FAIL: gm2/complex/run/pass/arith3.mod execution,  -g 
+FAIL: gm2/complex/run/pass/arith3.mod execution,  -O 
+FAIL: gm2/complex/run/pass/arith3.mod execution,  -O -g 
+FAIL: gm2/complex/run/pass/arith3.mod execution,  -Os 
+FAIL: gm2/complex/run/pass/arith3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/complex/run/pass/arith3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/complex/run/pass/arith4.mod execution,  -g 
+FAIL: gm2/complex/run/pass/arith4.mod execution,  -O 
+FAIL: gm2/complex/run/pass/arith4.mod execution,  -O -g 
+FAIL: gm2/complex/run/pass/arith4.mod execution,  -Os 
+FAIL: gm2/complex/run/pass/arith4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/complex/run/pass/arith4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/complex/run/pass/arith5.mod execution,  -g 
+FAIL: gm2/complex/run/pass/arith5.mod execution,  -O 
+FAIL: gm2/complex/run/pass/arith5.mod execution,  -O -g 
+FAIL: gm2/complex/run/pass/arith5.mod execution,  -Os 
+FAIL: gm2/complex/run/pass/arith5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/complex/run/pass/arith5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/complex/run/pass/arith6.mod execution,  -g 
+FAIL: gm2/complex/run/pass/arith6.mod execution,  -O 
+FAIL: gm2/complex/run/pass/arith6.mod execution,  -O -g 
+FAIL: gm2/complex/run/pass/arith6.mod execution,  -Os 
+FAIL: gm2/complex/run/pass/arith6.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/complex/run/pass/arith6.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/complex/run/pass/arith7.mod execution,  -g 
+FAIL: gm2/complex/run/pass/arith7.mod execution,  -O 
+FAIL: gm2/complex/run/pass/arith7.mod execution,  -O -g 
+FAIL: gm2/complex/run/pass/arith7.mod execution,  -Os 
+FAIL: gm2/complex/run/pass/arith7.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/complex/run/pass/arith7.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/complex/run/pass/arith8.mod execution,  -g 
+FAIL: gm2/complex/run/pass/arith8.mod execution,  -O 
+FAIL: gm2/complex/run/pass/arith8.mod execution,  -O -g 
+FAIL: gm2/complex/run/pass/arith8.mod execution,  -Os 
+FAIL: gm2/complex/run/pass/arith8.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/complex/run/pass/arith8.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/coroutines/pim/run/pass/gm2.exp ...
+FAIL: gm2/coroutines/pim/run/pass/testiotransfer.mod compilation,  -g 
+FAIL: gm2/coroutines/pim/run/pass/testiotransfer.mod compilation,  -O 
+FAIL: gm2/coroutines/pim/run/pass/testiotransfer.mod compilation,  -O -g 
+FAIL: gm2/coroutines/pim/run/pass/testiotransfer.mod compilation,  -Os 
+FAIL: gm2/coroutines/pim/run/pass/testiotransfer.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/coroutines/pim/run/pass/testiotransfer.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/coroutines/pim/run/pass/testtransfer.mod compilation,  -g 
+FAIL: gm2/coroutines/pim/run/pass/testtransfer.mod compilation,  -O 
+FAIL: gm2/coroutines/pim/run/pass/testtransfer.mod compilation,  -O -g 
+FAIL: gm2/coroutines/pim/run/pass/testtransfer.mod compilation,  -Os 
+FAIL: gm2/coroutines/pim/run/pass/testtransfer.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/coroutines/pim/run/pass/testtransfer.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/cpp/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/cse/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/cse/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/dynamic/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/embedded/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/errors/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/examples/callingC/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/examples/callingC/run/pass/gm2.exp ...
+FAIL: gm2/examples/callingC/run/pass/m.mod execution,  -g 
+FAIL: gm2/examples/callingC/run/pass/m.mod execution,  -O 
+FAIL: gm2/examples/callingC/run/pass/m.mod execution,  -O -g 
+FAIL: gm2/examples/callingC/run/pass/m.mod execution,  -Os 
+FAIL: gm2/examples/callingC/run/pass/m.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/examples/callingC/run/pass/m.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/examples/cpp/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/examples/cppDef/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/examples/hello/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/examples/map/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/exceptions/run/pass/gm2.exp ...
+FAIL: gm2/exceptions/run/pass/libexcept.mod compilation,  -g 
+FAIL: gm2/exceptions/run/pass/libexcept.mod compilation,  -O 
+FAIL: gm2/exceptions/run/pass/libexcept.mod compilation,  -O -g 
+FAIL: gm2/exceptions/run/pass/libexcept.mod compilation,  -Os 
+FAIL: gm2/exceptions/run/pass/libexcept.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/exceptions/run/pass/libexcept.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/exceptions/run/pass/m2test.mod compilation,  -g 
+FAIL: gm2/exceptions/run/pass/m2test.mod compilation,  -O 
+FAIL: gm2/exceptions/run/pass/m2test.mod compilation,  -O -g 
+FAIL: gm2/exceptions/run/pass/m2test.mod compilation,  -Os 
+FAIL: gm2/exceptions/run/pass/m2test.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/exceptions/run/pass/m2test.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/exceptions/run/pass/mym2.mod compilation,  -g 
+FAIL: gm2/exceptions/run/pass/mym2.mod compilation,  -O 
+FAIL: gm2/exceptions/run/pass/mym2.mod compilation,  -O -g 
+FAIL: gm2/exceptions/run/pass/mym2.mod compilation,  -Os 
+FAIL: gm2/exceptions/run/pass/mym2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/exceptions/run/pass/mym2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/exceptions/run/pass/mym2a.mod compilation,  -g 
+FAIL: gm2/exceptions/run/pass/mym2a.mod compilation,  -O 
+FAIL: gm2/exceptions/run/pass/mym2a.mod compilation,  -O -g 
+FAIL: gm2/exceptions/run/pass/mym2a.mod compilation,  -Os 
+FAIL: gm2/exceptions/run/pass/mym2a.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/exceptions/run/pass/mym2a.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/extensions/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/extensions/run/fail/gm2.exp ...
+FAIL: gm2/extensions/run/fail/intsize8.mod compilation,  -g 
+FAIL: gm2/extensions/run/fail/intsize8.mod compilation,  -O 
+FAIL: gm2/extensions/run/fail/intsize8.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/fail/intsize8.mod compilation,  -Os 
+FAIL: gm2/extensions/run/fail/intsize8.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/fail/intsize8.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/extensions/run/pass/gm2.exp ...
+FAIL: gm2/extensions/run/pass/align3.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/align3.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/align3.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/align3.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/align3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/align3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/align4.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/align4.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/align4.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/align4.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/align4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/align4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/align5.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/align5.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/align5.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/align5.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/align5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/align5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/align6.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/align6.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/align6.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/align6.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/align6.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/align6.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/align7.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/align7.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/align7.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/align7.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/align7.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/align7.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/callingc.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/callingc.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/callingc.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/callingc.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/callingc.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/callingc.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/card16p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/card16p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/card16p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/card16p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/card16p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/card16p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/card32p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/card32p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/card32p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/card32p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/card32p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/card32p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/card64p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/card64p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/card64p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/card64p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/card64p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/card64p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/card8p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/card8p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/card8p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/card8p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/card8p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/card8p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/column.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/column.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/column.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/column.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/column.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/column.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/int16p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/int16p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/int16p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/int16p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/int16p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/int16p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/int32p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/int32p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/int32p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/int32p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/int32p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/int32p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/int64p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/int64p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/int64p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/int64p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/int64p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/int64p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/int8field.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/int8field.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/int8field.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/int8field.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/int8field.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/int8field.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/int8p.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/int8p.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/int8p.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/int8p.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/int8p.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/int8p.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/packedrecord.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/packedrecord.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/packedrecord.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/packedrecord.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/packedrecord.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/packedrecord.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/packedrecord2.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/packedrecord2.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/packedrecord2.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/packedrecord2.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/packedrecord2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/packedrecord2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/real32.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/real32.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/real32.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/real32.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/real32.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/real32.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/real32a.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/real32a.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/real32a.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/real32a.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/real32a.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/real32a.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/record.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/record.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/record.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/record.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/record.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/record.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/testopen.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/testopen.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/testopen.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/testopen.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/testopen.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/testopen.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/vararg.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/vararg.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/vararg.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/vararg.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/vararg.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/vararg.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/vararg2.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/vararg2.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/vararg2.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/vararg2.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/vararg2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/vararg2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/extensions/run/pass/vararg3.mod compilation,  -g 
+FAIL: gm2/extensions/run/pass/vararg3.mod compilation,  -O 
+FAIL: gm2/extensions/run/pass/vararg3.mod compilation,  -O -g 
+FAIL: gm2/extensions/run/pass/vararg3.mod compilation,  -Os 
+FAIL: gm2/extensions/run/pass/vararg3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/extensions/run/pass/vararg3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/fpu/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/imports/run/pass/gm2.exp ...
+FAIL: gm2/imports/run/pass/c.mod compilation,  -g 
+FAIL: gm2/imports/run/pass/c.mod compilation,  -O 
+FAIL: gm2/imports/run/pass/c.mod compilation,  -O -g 
+FAIL: gm2/imports/run/pass/c.mod compilation,  -Os 
+FAIL: gm2/imports/run/pass/c.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/imports/run/pass/c.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/imports/run/pass/innermods.mod compilation,  -g 
+FAIL: gm2/imports/run/pass/innermods.mod compilation,  -O 
+FAIL: gm2/imports/run/pass/innermods.mod compilation,  -O -g 
+FAIL: gm2/imports/run/pass/innermods.mod compilation,  -Os 
+FAIL: gm2/imports/run/pass/innermods.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/imports/run/pass/innermods.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/imports/run/pass/innermods2.mod compilation,  -g 
+FAIL: gm2/imports/run/pass/innermods2.mod compilation,  -O 
+FAIL: gm2/imports/run/pass/innermods2.mod compilation,  -O -g 
+FAIL: gm2/imports/run/pass/innermods2.mod compilation,  -Os 
+FAIL: gm2/imports/run/pass/innermods2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/imports/run/pass/innermods2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/imports/run/pass/innermods3.mod compilation,  -g 
+FAIL: gm2/imports/run/pass/innermods3.mod compilation,  -O 
+FAIL: gm2/imports/run/pass/innermods3.mod compilation,  -O -g 
+FAIL: gm2/imports/run/pass/innermods3.mod compilation,  -Os 
+FAIL: gm2/imports/run/pass/innermods3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/imports/run/pass/innermods3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/imports/run/pass/innermods4.mod compilation,  -g 
+FAIL: gm2/imports/run/pass/innermods4.mod compilation,  -O 
+FAIL: gm2/imports/run/pass/innermods4.mod compilation,  -O -g 
+FAIL: gm2/imports/run/pass/innermods4.mod compilation,  -Os 
+FAIL: gm2/imports/run/pass/innermods4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/imports/run/pass/innermods4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/imports/run/pass/innermods5.mod compilation,  -g 
+FAIL: gm2/imports/run/pass/innermods5.mod compilation,  -O 
+FAIL: gm2/imports/run/pass/innermods5.mod compilation,  -O -g 
+FAIL: gm2/imports/run/pass/innermods5.mod compilation,  -Os 
+FAIL: gm2/imports/run/pass/innermods5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/imports/run/pass/innermods5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/imports/run/pass/innermods6.mod compilation,  -g 
+FAIL: gm2/imports/run/pass/innermods6.mod compilation,  -O 
+FAIL: gm2/imports/run/pass/innermods6.mod compilation,  -O -g 
+FAIL: gm2/imports/run/pass/innermods6.mod compilation,  -Os 
+FAIL: gm2/imports/run/pass/innermods6.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/imports/run/pass/innermods6.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/iso/analysis/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/iso/check/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/iso/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/iso/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/iso/run/pass/gm2.exp ...
+FAIL: gm2/iso/run/pass/adraddress.mod execution,  -g 
+FAIL: gm2/iso/run/pass/adraddress.mod execution,  -O 
+FAIL: gm2/iso/run/pass/adraddress.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/adraddress.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/adraddress.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/adraddress.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/adrunbounded3.mod execution,  -g 
+FAIL: gm2/iso/run/pass/adrunbounded3.mod execution,  -O 
+FAIL: gm2/iso/run/pass/adrunbounded3.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/adrunbounded3.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/adrunbounded3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/adrunbounded3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/baseimport.mod execution,  -g 
+FAIL: gm2/iso/run/pass/baseimport.mod execution,  -O 
+FAIL: gm2/iso/run/pass/baseimport.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/baseimport.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/baseimport.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/baseimport.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/compsize.mod execution,  -g 
+FAIL: gm2/iso/run/pass/compsize.mod execution,  -O 
+FAIL: gm2/iso/run/pass/compsize.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/compsize.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/compsize.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/compsize.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/concurrentstore.mod execution,  -g 
+FAIL: gm2/iso/run/pass/concurrentstore.mod execution,  -O 
+FAIL: gm2/iso/run/pass/concurrentstore.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/concurrentstore.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/concurrentstore.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/concurrentstore.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/constprocedure.mod execution,  -g 
+FAIL: gm2/iso/run/pass/constprocedure.mod execution,  -O 
+FAIL: gm2/iso/run/pass/constprocedure.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/constprocedure.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/constprocedure.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/constprocedure.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/constructor1.mod execution,  -g 
+FAIL: gm2/iso/run/pass/constructor1.mod execution,  -O 
+FAIL: gm2/iso/run/pass/constructor1.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/constructor1.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/constructor1.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/constructor1.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/constructor2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/constructor2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/constructor2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/constructor2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/constructor2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/constructor2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/conststrarray.mod execution,  -g 
+FAIL: gm2/iso/run/pass/conststrarray.mod execution,  -O 
+FAIL: gm2/iso/run/pass/conststrarray.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/conststrarray.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/conststrarray.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/conststrarray.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/contimer.mod execution,  -g 
+FAIL: gm2/iso/run/pass/contimer.mod execution,  -O 
+FAIL: gm2/iso/run/pass/contimer.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/contimer.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/contimer.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/contimer.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/except2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/except2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/except2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/except2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/except2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/except2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/except4.mod execution,  -g 
+FAIL: gm2/iso/run/pass/except4.mod execution,  -O 
+FAIL: gm2/iso/run/pass/except4.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/except4.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/except4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/except4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/except5.mod execution,  -g 
+FAIL: gm2/iso/run/pass/except5.mod execution,  -O 
+FAIL: gm2/iso/run/pass/except5.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/except5.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/except5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/except5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/except7.mod execution,  -g 
+FAIL: gm2/iso/run/pass/except7.mod execution,  -O 
+FAIL: gm2/iso/run/pass/except7.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/except7.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/except7.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/except7.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/except8.mod execution,  -g 
+FAIL: gm2/iso/run/pass/except8.mod execution,  -O 
+FAIL: gm2/iso/run/pass/except8.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/except8.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/except8.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/except8.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/fileio.mod execution,  -g 
+FAIL: gm2/iso/run/pass/fileio.mod execution,  -O 
+FAIL: gm2/iso/run/pass/fileio.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/fileio.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/fileio.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/fileio.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/hello.mod execution,  -g 
+FAIL: gm2/iso/run/pass/hello.mod execution,  -O 
+FAIL: gm2/iso/run/pass/hello.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/hello.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/hello.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/hello.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/int8field.mod execution,  -g 
+FAIL: gm2/iso/run/pass/int8field.mod execution,  -O 
+FAIL: gm2/iso/run/pass/int8field.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/int8field.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/int8field.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/int8field.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/long.mod compilation,  -g 
+FAIL: gm2/iso/run/pass/long.mod compilation,  -O 
+FAIL: gm2/iso/run/pass/long.mod compilation,  -O -g 
+FAIL: gm2/iso/run/pass/long.mod compilation,  -Os 
+FAIL: gm2/iso/run/pass/long.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/long.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/long2.mod compilation,  -g 
+FAIL: gm2/iso/run/pass/long2.mod compilation,  -O 
+FAIL: gm2/iso/run/pass/long2.mod compilation,  -O -g 
+FAIL: gm2/iso/run/pass/long2.mod compilation,  -Os 
+FAIL: gm2/iso/run/pass/long2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/long2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/long3.mod compilation,  -g 
+FAIL: gm2/iso/run/pass/long3.mod compilation,  -O 
+FAIL: gm2/iso/run/pass/long3.mod compilation,  -O -g 
+FAIL: gm2/iso/run/pass/long3.mod compilation,  -Os 
+FAIL: gm2/iso/run/pass/long3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/long3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/long4.mod compilation,  -g 
+FAIL: gm2/iso/run/pass/long4.mod compilation,  -O 
+FAIL: gm2/iso/run/pass/long4.mod compilation,  -O -g 
+FAIL: gm2/iso/run/pass/long4.mod compilation,  -Os 
+FAIL: gm2/iso/run/pass/long4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/long4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/minmax.mod execution,  -g 
+FAIL: gm2/iso/run/pass/minmax.mod execution,  -O 
+FAIL: gm2/iso/run/pass/minmax.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/minmax.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/minmax.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/minmax.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/modulus.mod execution,  -g 
+FAIL: gm2/iso/run/pass/modulus.mod execution,  -O 
+FAIL: gm2/iso/run/pass/modulus.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/modulus.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/modulus.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/modulus.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/nestediso.mod execution,  -g 
+FAIL: gm2/iso/run/pass/nestediso.mod execution,  -O 
+FAIL: gm2/iso/run/pass/nestediso.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/nestediso.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/nestediso.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/nestediso.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/nestedrecord.mod execution,  -g 
+FAIL: gm2/iso/run/pass/nestedrecord.mod execution,  -O 
+FAIL: gm2/iso/run/pass/nestedrecord.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/nestedrecord.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/nestedrecord.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/nestedrecord.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/onebyte.mod execution,  -g 
+FAIL: gm2/iso/run/pass/onebyte.mod execution,  -O 
+FAIL: gm2/iso/run/pass/onebyte.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/onebyte.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/onebyte.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/onebyte.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/onebyte2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/onebyte2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/onebyte2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/onebyte2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/onebyte2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/onebyte2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/onebyte3.mod execution,  -g 
+FAIL: gm2/iso/run/pass/onebyte3.mod execution,  -O 
+FAIL: gm2/iso/run/pass/onebyte3.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/onebyte3.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/onebyte3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/onebyte3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/packed.mod execution,  -g 
+FAIL: gm2/iso/run/pass/packed.mod execution,  -O 
+FAIL: gm2/iso/run/pass/packed.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/packed.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/packed.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/packed.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/proc.mod execution,  -g 
+FAIL: gm2/iso/run/pass/proc.mod execution,  -O 
+FAIL: gm2/iso/run/pass/proc.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/proc.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/proc.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/proc.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/proc2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/proc2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/proc2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/proc2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/proc2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/proc2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/returnrecord.mod execution,  -g 
+FAIL: gm2/iso/run/pass/returnrecord.mod execution,  -O 
+FAIL: gm2/iso/run/pass/returnrecord.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/returnrecord.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/returnrecord.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/returnrecord.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/shift.mod execution,  -g 
+FAIL: gm2/iso/run/pass/shift.mod execution,  -O 
+FAIL: gm2/iso/run/pass/shift.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/shift.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/shift.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/shift.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/shift2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/shift2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/shift2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/shift2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/shift2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/shift2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/shift3.mod execution,  -g 
+FAIL: gm2/iso/run/pass/shift3.mod execution,  -O 
+FAIL: gm2/iso/run/pass/shift3.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/shift3.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/shift3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/shift3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/shift4.mod execution,  -g 
+FAIL: gm2/iso/run/pass/shift4.mod execution,  -O 
+FAIL: gm2/iso/run/pass/shift4.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/shift4.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/shift4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/shift4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/simplelarge.mod execution,  -g 
+FAIL: gm2/iso/run/pass/simplelarge.mod execution,  -O 
+FAIL: gm2/iso/run/pass/simplelarge.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/simplelarge.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/simplelarge.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/simplelarge.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/strcons.mod execution,  -g 
+FAIL: gm2/iso/run/pass/strcons.mod execution,  -O 
+FAIL: gm2/iso/run/pass/strcons.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/strcons.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/strcons.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/strcons.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/strcons2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/strcons2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/strcons2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/strcons2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/strcons2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/strcons2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/testLength.mod execution,  -g 
+FAIL: gm2/iso/run/pass/testLength.mod execution,  -O 
+FAIL: gm2/iso/run/pass/testLength.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/testLength.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/testLength.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/testLength.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/testarray.mod execution,  -g 
+FAIL: gm2/iso/run/pass/testarray.mod execution,  -O 
+FAIL: gm2/iso/run/pass/testarray.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/testarray.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/testarray.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/testarray.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/testgeneric.mod execution,  -g 
+FAIL: gm2/iso/run/pass/testgeneric.mod execution,  -O 
+FAIL: gm2/iso/run/pass/testgeneric.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/testgeneric.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/testgeneric.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/testgeneric.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/testlarge.mod execution,  -g 
+FAIL: gm2/iso/run/pass/testlarge.mod execution,  -O 
+FAIL: gm2/iso/run/pass/testlarge.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/testlarge.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/testlarge.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/testlarge.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/testsystem.mod execution,  -g 
+FAIL: gm2/iso/run/pass/testsystem.mod execution,  -O 
+FAIL: gm2/iso/run/pass/testsystem.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/testsystem.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/testsystem.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/testsystem.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tinyconst.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tinyconst.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tinyconst.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tinyconst.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tinyconst.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tinyconst.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tinyconst2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tinyconst2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tinyconst2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tinyconst2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tinyconst2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tinyconst2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tinyconst3.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tinyconst3.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tinyconst3.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tinyconst3.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tinyconst3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tinyconst3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tinyconst4.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tinyconst4.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tinyconst4.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tinyconst4.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tinyconst4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tinyconst4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tinyconst5.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tinyconst5.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tinyconst5.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tinyconst5.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tinyconst5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tinyconst5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tinytimer.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tinytimer.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tinytimer.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tinytimer.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tinytimer.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tinytimer.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/trivialmodulus.mod execution,  -g 
+FAIL: gm2/iso/run/pass/trivialmodulus.mod execution,  -O 
+FAIL: gm2/iso/run/pass/trivialmodulus.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/trivialmodulus.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/trivialmodulus.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/trivialmodulus.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tsize.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tsize.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tsize.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tsize.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tsize.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tsize.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tsize2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tsize2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tsize2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tsize2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tsize2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tsize2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/tstLength.mod execution,  -g 
+FAIL: gm2/iso/run/pass/tstLength.mod execution,  -O 
+FAIL: gm2/iso/run/pass/tstLength.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/tstLength.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/tstLength.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/tstLength.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded2.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded2.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded2.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded2.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded3.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded3.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded3.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded3.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded4.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded4.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded4.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded4.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded5.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded5.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded5.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded5.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded6.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded6.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded6.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded6.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded6.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded6.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded7.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded7.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded7.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded7.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded7.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded7.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/iso/run/pass/unbounded8.mod execution,  -g 
+FAIL: gm2/iso/run/pass/unbounded8.mod execution,  -O 
+FAIL: gm2/iso/run/pass/unbounded8.mod execution,  -O -g 
+FAIL: gm2/iso/run/pass/unbounded8.mod execution,  -Os 
+FAIL: gm2/iso/run/pass/unbounded8.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/iso/run/pass/unbounded8.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/isocoroutines/run/pass/gm2.exp ...
+FAIL: gm2/isocoroutines/run/pass/coroutine.mod execution,  -g 
+FAIL: gm2/isocoroutines/run/pass/coroutine.mod execution,  -O 
+FAIL: gm2/isocoroutines/run/pass/coroutine.mod execution,  -O -g 
+FAIL: gm2/isocoroutines/run/pass/coroutine.mod execution,  -Os 
+FAIL: gm2/isocoroutines/run/pass/coroutine.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isocoroutines/run/pass/coroutine.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/isolib/run/pass/gm2.exp ...
+FAIL: gm2/isolib/run/pass/arraycons.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/arraycons.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/arraycons.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/arraycons.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/arraycons.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/arraycons.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/arraycons2.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/arraycons2.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/arraycons2.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/arraycons2.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/arraycons2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/arraycons2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/arraycons3.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/arraycons3.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/arraycons3.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/arraycons3.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/arraycons3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/arraycons3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/arraycons5.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/arraycons5.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/arraycons5.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/arraycons5.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/arraycons5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/arraycons5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/arraycons6.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/arraycons6.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/arraycons6.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/arraycons6.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/arraycons6.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/arraycons6.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/arraycons7.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/arraycons7.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/arraycons7.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/arraycons7.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/arraycons7.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/arraycons7.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/arrayconst8.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/arrayconst8.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/arrayconst8.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/arrayconst8.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/arrayconst8.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/arrayconst8.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/exceptiontest.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/exceptiontest.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/exceptiontest.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/exceptiontest.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/exceptiontest.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/exceptiontest.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/filepos.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/filepos.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/filepos.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/filepos.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/filepos.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/filepos.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/hello.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/hello.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/hello.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/hello.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/hello.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/hello.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/insert.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/insert.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/insert.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/insert.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/insert.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/insert.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/intconv.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/intconv.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/intconv.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/intconv.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/intconv.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/intconv.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/longstr.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/longstr.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/longstr.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/longstr.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/longstr.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/longstr.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/openlibc.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/openlibc.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/openlibc.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/openlibc.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/openlibc.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/openlibc.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/raise.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/raise.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/raise.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/raise.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/raise.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/raise.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/raise2.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/raise2.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/raise2.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/raise2.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/raise2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/raise2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/readreal.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/readreal.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/readreal.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/readreal.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/readreal.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/readreal.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/real1.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/real1.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/real1.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/real1.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/real1.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/real1.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/real2.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/real2.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/real2.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/real2.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/real2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/real2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/real3.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/real3.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/real3.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/real3.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/real3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/real3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/realconv.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/realconv.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/realconv.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/realconv.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/realconv.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/realconv.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/realconv2.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/realconv2.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/realconv2.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/realconv2.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/realconv2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/realconv2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/realstr.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/realstr.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/realstr.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/realstr.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/realstr.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/realstr.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/sigfig.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/sigfig.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/sigfig.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/sigfig.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/sigfig.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/sigfig.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/stringreal2.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/stringreal2.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/stringreal2.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/stringreal2.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/stringreal2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/stringreal2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/termfile.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/termfile.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/termfile.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/termfile.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/termfile.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/termfile.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/testappend.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/testappend.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/testappend.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/testappend.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/testappend.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/testappend.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/testio.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/testio.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/testio.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/testio.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/testio.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/testio.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/testio2.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/testio2.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/testio2.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/testio2.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/testio2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/testio2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/testmem.mod compilation,  -g 
+FAIL: gm2/isolib/run/pass/testmem.mod compilation,  -O 
+FAIL: gm2/isolib/run/pass/testmem.mod compilation,  -O -g 
+FAIL: gm2/isolib/run/pass/testmem.mod compilation,  -Os 
+FAIL: gm2/isolib/run/pass/testmem.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/testmem.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/testmem2.mod compilation,  -g 
+FAIL: gm2/isolib/run/pass/testmem2.mod compilation,  -O 
+FAIL: gm2/isolib/run/pass/testmem2.mod compilation,  -O -g 
+FAIL: gm2/isolib/run/pass/testmem2.mod compilation,  -Os 
+FAIL: gm2/isolib/run/pass/testmem2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/testmem2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/tiny.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/tiny.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/tiny.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/tiny.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/tiny.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/tiny.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/tiny2.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/tiny2.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/tiny2.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/tiny2.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/tiny2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/tiny2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/tiny3.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/tiny3.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/tiny3.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/tiny3.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/tiny3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/tiny3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/tiny4.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/tiny4.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/tiny4.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/tiny4.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/tiny4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/tiny4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/isolib/run/pass/tiny5.mod execution,  -g 
+FAIL: gm2/isolib/run/pass/tiny5.mod execution,  -O 
+FAIL: gm2/isolib/run/pass/tiny5.mod execution,  -O -g 
+FAIL: gm2/isolib/run/pass/tiny5.mod execution,  -Os 
+FAIL: gm2/isolib/run/pass/tiny5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/isolib/run/pass/tiny5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/link/pim/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/link/pim/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/linking/libarchive/pass/gm2.exp ...
+FAIL: gm2/linking/libarchive/pass/m.mod execution,  -g 
+FAIL: gm2/linking/libarchive/pass/m.mod execution,  -O 
+FAIL: gm2/linking/libarchive/pass/m.mod execution,  -O -g 
+FAIL: gm2/linking/libarchive/pass/m.mod execution,  -Os 
+FAIL: gm2/linking/libarchive/pass/m.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/linking/libarchive/pass/m.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/linking/verbose/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/fail/gm2.exp ...
+FAIL: gm2/pim/fail/TestLong4.mod,  -g  
+FAIL: gm2/pim/fail/TestLong4.mod,  -O  
+FAIL: gm2/pim/fail/TestLong4.mod,  -O -g  
+FAIL: gm2/pim/fail/TestLong4.mod,  -Os  
+FAIL: gm2/pim/fail/TestLong4.mod,  -O3 -fomit-frame-pointer  
+FAIL: gm2/pim/fail/TestLong4.mod,  -O3 -fomit-frame-pointer -finline-functions  
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/no-options/run/pass/gm2.exp ...
+FAIL: gm2/pim/no-options/run/pass/integer.mod compilation,  -g 
+FAIL: gm2/pim/no-options/run/pass/integer.mod compilation,  -O 
+FAIL: gm2/pim/no-options/run/pass/integer.mod compilation,  -O -g 
+FAIL: gm2/pim/no-options/run/pass/integer.mod compilation,  -Os 
+FAIL: gm2/pim/no-options/run/pass/integer.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/no-options/run/pass/integer.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/bounds/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/gm2.exp ...
+FAIL: gm2/pim/options/optimize/run/pass/testadd.mod compilation,  -g 
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -g -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -g -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: gm2/pim/options/optimize/run/pass/testadd.mod compilation,  -O 
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: gm2/pim/options/optimize/run/pass/testadd.mod compilation,  -O -g 
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O -g -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O -g -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: gm2/pim/options/optimize/run/pass/testadd.mod compilation,  -Os 
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -Os -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -Os -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: gm2/pim/options/optimize/run/pass/testadd.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O3 -fomit-frame-pointer -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O3 -fomit-frame-pointer -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: gm2/pim/options/optimize/run/pass/testadd.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O3 -fomit-frame-pointer -finline-functions -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+FAIL: /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass/addition.mod compilation, -O3 -fomit-frame-pointer -finline-functions -fonlylink {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs } additional_flags=-fsources additional_flags=-v {compiler=/home/brian/m2/gcc/gm2 -B/home/brian/m2/gcc -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs -I/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso:/home/brian/gm2-floppsie/gcc/testsuite/../m2/gm2-libs-iso -I/home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/options/optimize/run/pass -fpim -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs -fno-diagnostics-show-caret -fno-diagnostics-show-line-numbers -fdiagnostics-color=never}
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/run/fail/gm2.exp ...
+FAIL: gm2/pim/run/fail/case.mod compilation,  -g 
+FAIL: gm2/pim/run/fail/case.mod compilation,  -O 
+FAIL: gm2/pim/run/fail/case.mod compilation,  -O -g 
+FAIL: gm2/pim/run/fail/case.mod compilation,  -Os 
+FAIL: gm2/pim/run/fail/case.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/fail/case.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/fail/nil.mod compilation,  -g 
+FAIL: gm2/pim/run/fail/nil.mod compilation,  -O 
+FAIL: gm2/pim/run/fail/nil.mod compilation,  -O -g 
+FAIL: gm2/pim/run/fail/nil.mod compilation,  -Os 
+FAIL: gm2/pim/run/fail/nil.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/fail/nil.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pim/run/pass/gm2.exp ...
+FAIL: gm2/pim/run/pass/Countdown.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/Countdown.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/Countdown.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/Countdown.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/Countdown.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/Countdown.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/EndFor.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/EndFor.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/EndFor.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/EndFor.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/EndFor.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/EndFor.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/EnumTest.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/EnumTest.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/EnumTest.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/EnumTest.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/EnumTest.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/EnumTest.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For1.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For1.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For1.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For1.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For1.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For1.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For10.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For10.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For10.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For10.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For10.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For10.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For11.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For11.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For11.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For11.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For11.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For11.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For12.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For12.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For12.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For12.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For12.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For12.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For4.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For4.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For4.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For4.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For5.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For5.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For5.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For5.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For6.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For6.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For6.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For6.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For6.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For6.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For7.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For7.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For7.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For7.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For7.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For7.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For8.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For8.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For8.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For8.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For8.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For8.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/For9.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/For9.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/For9.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/For9.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/For9.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/For9.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/FpuIOBug.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/FpuIOBug.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/FpuIOBug.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/FpuIOBug.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/FpuIOBug.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/FpuIOBug.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/MaxReal.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/MaxReal.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/MaxReal.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/MaxReal.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/MaxReal.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/MaxReal.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/MaxReal2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/MaxReal2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/MaxReal2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/MaxReal2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/MaxReal2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/MaxReal2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/TestLong.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/TestLong.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/TestLong.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/TestLong.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/TestLong.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/TestLong.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/TestLong2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/TestLong2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/TestLong2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/TestLong2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/TestLong2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/TestLong2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/TestLong4.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/TestLong4.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/TestLong4.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/TestLong4.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/TestLong4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/TestLong4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/TestLong5.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/TestLong5.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/TestLong5.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/TestLong5.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/TestLong5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/TestLong5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/addrarray.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/addrarray.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/addrarray.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/addrarray.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/addrarray.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/addrarray.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/arraychar.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/arraychar.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/arraychar.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/arraychar.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/arraychar.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/arraychar.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/arraychar2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/arraychar2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/arraychar2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/arraychar2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/arraychar2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/arraychar2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/arrayrecord.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/arrayrecord.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/arrayrecord.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/arrayrecord.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/arrayrecord.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/arrayrecord.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/bitsettest.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/bitsettest.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/bitsettest.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/bitsettest.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/bitsettest.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/bitsettest.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/bytearray.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/bytearray.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/bytearray.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/bytearray.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/bytearray.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/bytearray.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/constdynstr.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/constdynstr.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/constdynstr.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/constdynstr.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/constdynstr.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/constdynstr.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/conststr.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/conststr.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/conststr.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/conststr.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/conststr.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/conststr.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/conststr2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/conststr2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/conststr2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/conststr2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/conststr2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/conststr2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/cycles.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/cycles.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/cycles.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/cycles.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/cycles.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/cycles.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/dec.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/dec.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/dec.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/dec.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/dec.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/dec.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/enums.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/enums.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/enums.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/enums.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/enums.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/enums.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/incsubrange.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/incsubrange.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/incsubrange.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/incsubrange.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/incsubrange.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/incsubrange.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/index3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/index3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/index3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/index3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/index3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/index3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/int16.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/int16.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/int16.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/int16.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/int16.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/int16.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/int32.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/int32.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/int32.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/int32.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/int32.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/int32.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/int8.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/int8.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/int8.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/int8.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/int8.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/int8.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/line.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/line.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/line.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/line.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/line.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/line.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/long.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/long.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/long.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/long.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/long.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/long.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/longfor.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/longfor.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/longfor.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/longfor.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/longfor.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/longfor.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/longtypes10.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/longtypes10.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/longtypes10.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/longtypes10.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/longtypes10.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/longtypes10.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/longtypes7.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/longtypes7.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/longtypes7.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/longtypes7.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/longtypes7.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/longtypes7.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/longtypes8.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/longtypes8.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/longtypes8.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/longtypes8.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/longtypes8.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/longtypes8.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/longtypes9.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/longtypes9.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/longtypes9.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/longtypes9.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/longtypes9.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/longtypes9.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/math.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/math.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/math.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/math.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/math.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/math.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/math2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/math2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/math2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/math2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/math2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/math2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/mathconst.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/mathconst.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/mathconst.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/mathconst.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/mathconst.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/mathconst.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/minimal.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/minimal.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/minimal.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/minimal.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/minimal.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/minimal.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedproc.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedproc.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedproc.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedproc.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedproc.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedproc.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedproc2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedproc2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedproc2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedproc2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedproc2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedproc2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedproc3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedproc3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedproc3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedproc3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedproc3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedproc3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedproc4.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedproc4.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedproc4.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedproc4.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedproc4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedproc4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedproc5.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedproc5.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedproc5.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedproc5.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedproc5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedproc5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedproc6.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedproc6.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedproc6.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedproc6.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedproc6.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedproc6.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedproc7.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedproc7.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedproc7.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedproc7.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedproc7.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedproc7.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedwith.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedwith.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedwith.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedwith.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedwith.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedwith.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedwith2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedwith2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedwith2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedwith2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedwith2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedwith2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nestedwith3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nestedwith3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nestedwith3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nestedwith3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nestedwith3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nestedwith3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/nothing.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/nothing.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/nothing.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/nothing.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/nothing.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/nothing.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/prog31ex.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/prog31ex.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/prog31ex.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/prog31ex.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/prog31ex.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/prog31ex.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/rts.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/rts.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/rts.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/rts.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/rts.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/rts.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/setcritical.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/setcritical.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/setcritical.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/setcritical.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/setcritical.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/setcritical.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/setequiv.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/setequiv.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/setequiv.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/setequiv.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/setequiv.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/setequiv.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/str6.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/str6.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/str6.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/str6.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/str6.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/str6.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/stringaddr.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/stringaddr.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/stringaddr.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/stringaddr.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/stringaddr.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/stringaddr.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/stringaddr2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/stringaddr2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/stringaddr2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/stringaddr2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/stringaddr2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/stringaddr2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/stripped.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/stripped.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/stripped.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/stripped.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/stripped.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/stripped.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/sys.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/sys.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/sys.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/sys.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/sys.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/sys.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testaddr.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testaddr.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testaddr.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testaddr.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testaddr.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testaddr.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testaddr2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testaddr2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testaddr2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testaddr2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testaddr2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testaddr2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testaddr3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testaddr3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testaddr3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testaddr3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testaddr3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testaddr3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testarray.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testarray.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testarray.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testarray.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testarray.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testarray.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testarray2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testarray2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testarray2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testarray2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testarray2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testarray2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testarray3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testarray3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testarray3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testarray3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testarray3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testarray3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testarray4.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testarray4.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testarray4.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testarray4.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testarray4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testarray4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testarray5.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testarray5.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testarray5.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testarray5.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testarray5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testarray5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testavail.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testavail.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testavail.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testavail.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testavail.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testavail.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testdiv.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testdiv.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testdiv.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testdiv.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testdiv.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testdiv.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testfpufunc.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testfpufunc.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testfpufunc.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testfpufunc.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testfpufunc.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testfpufunc.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testfpufunc2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testfpufunc2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testfpufunc2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testfpufunc2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testfpufunc2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testfpufunc2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testlarge.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testlarge.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testlarge.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testlarge.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testlarge.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testlarge.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testlarge2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testlarge2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testlarge2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testlarge2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testlarge2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testlarge2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testnextproc.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testnextproc.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testnextproc.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testnextproc.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testnextproc.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testnextproc.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testparam.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testparam.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testparam.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testparam.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testparam.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testparam.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testpound.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testpound.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testpound.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testpound.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testpound.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testpound.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testreturnstr.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testreturnstr.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testreturnstr.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testreturnstr.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testreturnstr.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testreturnstr.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testreturnstr2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testreturnstr2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testreturnstr2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testreturnstr2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testreturnstr2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testreturnstr2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testreturnstr3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testreturnstr3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testreturnstr3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testreturnstr3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testreturnstr3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testreturnstr3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testsize.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testsize.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testsize.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testsize.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testsize.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testsize.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testsize2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testsize2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testsize2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testsize2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testsize2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testsize2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/testsize3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/testsize3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/testsize3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/testsize3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/testsize3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/testsize3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/tinywith.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/tinywith.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/tinywith.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/tinywith.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/tinywith.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/tinywith.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/unbounded.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/unbounded.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/unbounded.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/unbounded.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/unbounded.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/unbounded.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/varaddress3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/varaddress3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/varaddress3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/varaddress3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/varaddress3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/varaddress3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/varparam2.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/varparam2.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/varparam2.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/varparam2.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/varparam2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/varparam2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/varparam3.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/varparam3.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/varparam3.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/varparam3.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/varparam3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/varparam3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/varparm.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/varparm.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/varparm.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/varparm.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/varparm.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/varparm.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pim/run/pass/wr.mod compilation,  -g 
+FAIL: gm2/pim/run/pass/wr.mod compilation,  -O 
+FAIL: gm2/pim/run/pass/wr.mod compilation,  -O -g 
+FAIL: gm2/pim/run/pass/wr.mod compilation,  -Os 
+FAIL: gm2/pim/run/pass/wr.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pim/run/pass/wr.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimcoroutines/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimcoroutines/run/pass/gm2.exp ...
+FAIL: gm2/pimcoroutines/run/pass/testtime.mod compilation,  -g 
+FAIL: gm2/pimcoroutines/run/pass/testtime.mod compilation,  -O 
+FAIL: gm2/pimcoroutines/run/pass/testtime.mod compilation,  -O -g 
+FAIL: gm2/pimcoroutines/run/pass/testtime.mod compilation,  -Os 
+FAIL: gm2/pimcoroutines/run/pass/testtime.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimcoroutines/run/pass/testtime.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimlib/base/run/pass/gm2.exp ...
+FAIL: gm2/pimlib/base/run/pass/FIO.mod compilation,  -g 
+FAIL: gm2/pimlib/base/run/pass/FIO.mod compilation,  -O 
+FAIL: gm2/pimlib/base/run/pass/FIO.mod compilation,  -O -g 
+FAIL: gm2/pimlib/base/run/pass/FIO.mod compilation,  -Os 
+FAIL: gm2/pimlib/base/run/pass/FIO.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/base/run/pass/FIO.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/base/run/pass/StrLib.mod compilation,  -g 
+FAIL: gm2/pimlib/base/run/pass/StrLib.mod compilation,  -O 
+FAIL: gm2/pimlib/base/run/pass/StrLib.mod compilation,  -O -g 
+FAIL: gm2/pimlib/base/run/pass/StrLib.mod compilation,  -Os 
+FAIL: gm2/pimlib/base/run/pass/StrLib.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/base/run/pass/StrLib.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/base/run/pass/testconvert.mod compilation,  -g 
+FAIL: gm2/pimlib/base/run/pass/testconvert.mod compilation,  -O 
+FAIL: gm2/pimlib/base/run/pass/testconvert.mod compilation,  -O -g 
+FAIL: gm2/pimlib/base/run/pass/testconvert.mod compilation,  -Os 
+FAIL: gm2/pimlib/base/run/pass/testconvert.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/base/run/pass/testconvert.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimlib/coroutines/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimlib/logitech/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimlib/logitech/run/pass/gm2.exp ...
+FAIL: gm2/pimlib/logitech/run/pass/bbits.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/bbits.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/bbits.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/bbits.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/bbits.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/bbits.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/hello.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/hello.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/hello.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/hello.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/hello.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/hello.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/helloinout.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/helloinout.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/helloinout.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/helloinout.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/helloinout.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/helloinout.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/intb.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/intb.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/intb.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/intb.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/intb.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/intb.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/realconv.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/realconv.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/realconv.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/realconv.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/realconv.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/realconv.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/realinput.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/realinput.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/realinput.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/realinput.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/realinput.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/realinput.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/realinput2.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/realinput2.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/realinput2.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/realinput2.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/realinput2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/realinput2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/realinput3.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/realinput3.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/realinput3.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/realinput3.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/realinput3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/realinput3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/rename.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/rename.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/rename.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/rename.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/rename.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/rename.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/timedate.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/timedate.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/timedate.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/timedate.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/timedate.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/timedate.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/logitech/run/pass/writeoct.mod compilation,  -g 
+FAIL: gm2/pimlib/logitech/run/pass/writeoct.mod compilation,  -O 
+FAIL: gm2/pimlib/logitech/run/pass/writeoct.mod compilation,  -O -g 
+FAIL: gm2/pimlib/logitech/run/pass/writeoct.mod compilation,  -Os 
+FAIL: gm2/pimlib/logitech/run/pass/writeoct.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/logitech/run/pass/writeoct.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimlib/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/pimlib/run/pass/gm2.exp ...
+FAIL: gm2/pimlib/run/pass/format.mod compilation,  -g 
+FAIL: gm2/pimlib/run/pass/format.mod compilation,  -O 
+FAIL: gm2/pimlib/run/pass/format.mod compilation,  -O -g 
+FAIL: gm2/pimlib/run/pass/format.mod compilation,  -Os 
+FAIL: gm2/pimlib/run/pass/format.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/run/pass/format.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/run/pass/limittests.mod compilation,  -g 
+FAIL: gm2/pimlib/run/pass/limittests.mod compilation,  -O 
+FAIL: gm2/pimlib/run/pass/limittests.mod compilation,  -O -g 
+FAIL: gm2/pimlib/run/pass/limittests.mod compilation,  -Os 
+FAIL: gm2/pimlib/run/pass/limittests.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/run/pass/limittests.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/run/pass/longreal.mod compilation,  -g 
+FAIL: gm2/pimlib/run/pass/longreal.mod compilation,  -O 
+FAIL: gm2/pimlib/run/pass/longreal.mod compilation,  -O -g 
+FAIL: gm2/pimlib/run/pass/longreal.mod compilation,  -Os 
+FAIL: gm2/pimlib/run/pass/longreal.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/run/pass/longreal.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/run/pass/testreal.mod compilation,  -g 
+FAIL: gm2/pimlib/run/pass/testreal.mod compilation,  -O 
+FAIL: gm2/pimlib/run/pass/testreal.mod compilation,  -O -g 
+FAIL: gm2/pimlib/run/pass/testreal.mod compilation,  -Os 
+FAIL: gm2/pimlib/run/pass/testreal.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/run/pass/testreal.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/run/pass/testreal2.mod compilation,  -g 
+FAIL: gm2/pimlib/run/pass/testreal2.mod compilation,  -O 
+FAIL: gm2/pimlib/run/pass/testreal2.mod compilation,  -O -g 
+FAIL: gm2/pimlib/run/pass/testreal2.mod compilation,  -Os 
+FAIL: gm2/pimlib/run/pass/testreal2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/run/pass/testreal2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/pimlib/run/pass/testreal4.mod compilation,  -g 
+FAIL: gm2/pimlib/run/pass/testreal4.mod compilation,  -O 
+FAIL: gm2/pimlib/run/pass/testreal4.mod compilation,  -O -g 
+FAIL: gm2/pimlib/run/pass/testreal4.mod compilation,  -Os 
+FAIL: gm2/pimlib/run/pass/testreal4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/pimlib/run/pass/testreal4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/quads/run/pass/gm2.exp ...
+FAIL: gm2/quads/run/pass/becomes.mod compilation,  -g 
+FAIL: gm2/quads/run/pass/becomes.mod compilation,  -O 
+FAIL: gm2/quads/run/pass/becomes.mod compilation,  -O -g 
+FAIL: gm2/quads/run/pass/becomes.mod compilation,  -Os 
+FAIL: gm2/quads/run/pass/becomes.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/quads/run/pass/becomes.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/quads/run/pass/param.mod compilation,  -g 
+FAIL: gm2/quads/run/pass/param.mod compilation,  -O 
+FAIL: gm2/quads/run/pass/param.mod compilation,  -O -g 
+FAIL: gm2/quads/run/pass/param.mod compilation,  -Os 
+FAIL: gm2/quads/run/pass/param.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/quads/run/pass/param.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/quads/run/pass/return.mod compilation,  -g 
+FAIL: gm2/quads/run/pass/return.mod compilation,  -O 
+FAIL: gm2/quads/run/pass/return.mod compilation,  -O -g 
+FAIL: gm2/quads/run/pass/return.mod compilation,  -Os 
+FAIL: gm2/quads/run/pass/return.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/quads/run/pass/return.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/sets/run/pass/gm2.exp ...
+FAIL: gm2/sets/run/pass/multisetarith.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetarith.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetarith.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetarith.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetarith.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetarith.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetarith2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetarith2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetarith2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetarith2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetarith2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetarith2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetarith3.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetarith3.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetarith3.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetarith3.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetarith3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetarith3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetarith4.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetarith4.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetarith4.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetarith4.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetarith4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetarith4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetrotate.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetrotate.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetrotate.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetrotate.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetrotate.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetrotate.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetrotate2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetrotate2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetrotate2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetrotate2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetrotate2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetrotate2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetrotate3.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetrotate3.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetrotate3.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetrotate3.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetrotate3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetrotate3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetrotate4.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetrotate4.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetrotate4.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetrotate4.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetrotate4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetrotate4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetshift.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetshift.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetshift.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetshift.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetshift.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetshift.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisetshift2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisetshift2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisetshift2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisetshift2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisetshift2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisetshift2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisimple.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisimple.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisimple.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisimple.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisimple.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisimple.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisimple2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisimple2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisimple2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisimple2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisimple2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisimple2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisimple3.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisimple3.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisimple3.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisimple3.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisimple3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisimple3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisimple4.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisimple4.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisimple4.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisimple4.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisimple4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisimple4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisimple5.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisimple5.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisimple5.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisimple5.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisimple5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisimple5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisimple6.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisimple6.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisimple6.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisimple6.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisimple6.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisimple6.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/multisimple7.mod execution,  -g 
+FAIL: gm2/sets/run/pass/multisimple7.mod execution,  -O 
+FAIL: gm2/sets/run/pass/multisimple7.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/multisimple7.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/multisimple7.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/multisimple7.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setarith.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setarith.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setarith.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setarith.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setarith.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setarith.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setarith2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setarith2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setarith2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setarith2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setarith2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setarith2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setarith3.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setarith3.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setarith3.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setarith3.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setarith3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setarith3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setarith4.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setarith4.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setarith4.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setarith4.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setarith4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setarith4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setrotate.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setrotate.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setrotate.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setrotate.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setrotate.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setrotate.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setrotate2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setrotate2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setrotate2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setrotate2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setrotate2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setrotate2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setrotate3.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setrotate3.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setrotate3.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setrotate3.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setrotate3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setrotate3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setrotate4.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setrotate4.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setrotate4.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setrotate4.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setrotate4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setrotate4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setshift.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setshift.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setshift.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setshift.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setshift.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setshift.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/setshift2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/setshift2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/setshift2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/setshift2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/setshift2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/setshift2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/simple.mod execution,  -g 
+FAIL: gm2/sets/run/pass/simple.mod execution,  -O 
+FAIL: gm2/sets/run/pass/simple.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/simple.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/simple.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/simple.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/simple2.mod execution,  -g 
+FAIL: gm2/sets/run/pass/simple2.mod execution,  -O 
+FAIL: gm2/sets/run/pass/simple2.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/simple2.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/simple2.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/simple2.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/simple3.mod execution,  -g 
+FAIL: gm2/sets/run/pass/simple3.mod execution,  -O 
+FAIL: gm2/sets/run/pass/simple3.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/simple3.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/simple3.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/simple3.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/simple4.mod execution,  -g 
+FAIL: gm2/sets/run/pass/simple4.mod execution,  -O 
+FAIL: gm2/sets/run/pass/simple4.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/simple4.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/simple4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/simple4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/simple5.mod execution,  -g 
+FAIL: gm2/sets/run/pass/simple5.mod execution,  -O 
+FAIL: gm2/sets/run/pass/simple5.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/simple5.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/simple5.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/simple5.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/simple6.mod execution,  -g 
+FAIL: gm2/sets/run/pass/simple6.mod execution,  -O 
+FAIL: gm2/sets/run/pass/simple6.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/simple6.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/simple6.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/simple6.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/sets/run/pass/simple7.mod execution,  -g 
+FAIL: gm2/sets/run/pass/simple7.mod execution,  -O 
+FAIL: gm2/sets/run/pass/simple7.mod execution,  -O -g 
+FAIL: gm2/sets/run/pass/simple7.mod execution,  -Os 
+FAIL: gm2/sets/run/pass/simple7.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/sets/run/pass/simple7.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/auto-init/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/check-all/pim2/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/check-all/plugin/iso/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/check-all/plugin/pim2/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/check-all/run/fail/gm2.exp ...
+FAIL: gm2/switches/check-all/run/fail/cardrange.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/cardrange.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/cardrange.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/cardrange.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/cardrange.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/cardrange.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/cardrange2.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/cardrange2.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/cardrange2.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/cardrange2.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/cardrange2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/cardrange2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/cardrange3.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/cardrange3.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/cardrange3.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/cardrange3.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/cardrange3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/cardrange3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/intrange.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/intrange.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/intrange.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/intrange.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/intrange.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/intrange.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/intrange2.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/intrange2.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/intrange2.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/intrange2.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/intrange2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/intrange2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/intrange3.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/intrange3.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/intrange3.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/intrange3.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/intrange3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/intrange3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/intrange4.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/intrange4.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/intrange4.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/intrange4.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/intrange4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/intrange4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/intrange5.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/intrange5.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/intrange5.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/intrange5.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/intrange5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/intrange5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/multint1.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/multint1.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/multint1.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/multint1.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/multint1.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/multint1.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/multint2.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/multint2.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/multint2.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/multint2.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/multint2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/multint2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/multint3.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/multint3.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/multint3.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/multint3.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/multint3.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/multint3.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/realrange.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/realrange.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/realrange.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/realrange.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/realrange.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/realrange.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/fail/subrange.mod compilation,  -g 
+FAIL: gm2/switches/check-all/run/fail/subrange.mod compilation,  -O 
+FAIL: gm2/switches/check-all/run/fail/subrange.mod compilation,  -O -g 
+FAIL: gm2/switches/check-all/run/fail/subrange.mod compilation,  -Os 
+FAIL: gm2/switches/check-all/run/fail/subrange.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/fail/subrange.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/check-all/run/pass/gm2.exp ...
+FAIL: gm2/switches/check-all/run/pass/cardrange.mod execution,  -g 
+FAIL: gm2/switches/check-all/run/pass/cardrange.mod execution,  -O 
+FAIL: gm2/switches/check-all/run/pass/cardrange.mod execution,  -O -g 
+FAIL: gm2/switches/check-all/run/pass/cardrange.mod execution,  -Os 
+FAIL: gm2/switches/check-all/run/pass/cardrange.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/pass/cardrange.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/pass/forcheck.mod execution,  -g 
+FAIL: gm2/switches/check-all/run/pass/forcheck.mod execution,  -O 
+FAIL: gm2/switches/check-all/run/pass/forcheck.mod execution,  -O -g 
+FAIL: gm2/switches/check-all/run/pass/forcheck.mod execution,  -Os 
+FAIL: gm2/switches/check-all/run/pass/forcheck.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/pass/forcheck.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/check-all/run/pass/subrange.mod execution,  -g 
+FAIL: gm2/switches/check-all/run/pass/subrange.mod execution,  -O 
+FAIL: gm2/switches/check-all/run/pass/subrange.mod execution,  -O -g 
+FAIL: gm2/switches/check-all/run/pass/subrange.mod execution,  -Os 
+FAIL: gm2/switches/check-all/run/pass/subrange.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/check-all/run/pass/subrange.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/extended-opaque/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/extended-opaque/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/iso/run/pass/gm2.exp ...
+FAIL: gm2/switches/iso/run/pass/modulus.mod execution,  -g 
+FAIL: gm2/switches/iso/run/pass/modulus.mod execution,  -O 
+FAIL: gm2/switches/iso/run/pass/modulus.mod execution,  -O -g 
+FAIL: gm2/switches/iso/run/pass/modulus.mod execution,  -Os 
+FAIL: gm2/switches/iso/run/pass/modulus.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/iso/run/pass/modulus.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/iso/run/pass/modulus4.mod execution,  -g 
+FAIL: gm2/switches/iso/run/pass/modulus4.mod execution,  -O 
+FAIL: gm2/switches/iso/run/pass/modulus4.mod execution,  -O -g 
+FAIL: gm2/switches/iso/run/pass/modulus4.mod execution,  -Os 
+FAIL: gm2/switches/iso/run/pass/modulus4.mod execution,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/iso/run/pass/modulus4.mod execution,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/makeall/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/makeall/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/none/run/pass/gm2-none.exp ...
+FAIL: gm2/switches/none/run/pass/hello.mod compilation, {libs=-lm2pim -lm2iso -lpthread} {ldflags= -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libstdc++-v3/src/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2min/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2pim/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2cor/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2log/.libs  -L/home/brian/m2/x86_64-unknown-openbsd6.9/./libgm2/libm2iso/.libs }
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/optimization/run/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/pedantic-params/fail/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/pedantic-params/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/pic/run/pass/gm2.exp ...
+FAIL: gm2/switches/pic/run/pass/func.mod compilation,  -g 
+FAIL: gm2/switches/pic/run/pass/func.mod compilation,  -O 
+FAIL: gm2/switches/pic/run/pass/func.mod compilation,  -O -g 
+FAIL: gm2/switches/pic/run/pass/func.mod compilation,  -Os 
+FAIL: gm2/switches/pic/run/pass/func.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pic/run/pass/func.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/pic/run/pass/func2.mod compilation,  -g 
+FAIL: gm2/switches/pic/run/pass/func2.mod compilation,  -O 
+FAIL: gm2/switches/pic/run/pass/func2.mod compilation,  -O -g 
+FAIL: gm2/switches/pic/run/pass/func2.mod compilation,  -Os 
+FAIL: gm2/switches/pic/run/pass/func2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pic/run/pass/func2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/pim2/run/pass/gm2.exp ...
+FAIL: gm2/switches/pim2/run/pass/modulus.mod compilation,  -g 
+FAIL: gm2/switches/pim2/run/pass/modulus.mod compilation,  -O 
+FAIL: gm2/switches/pim2/run/pass/modulus.mod compilation,  -O -g 
+FAIL: gm2/switches/pim2/run/pass/modulus.mod compilation,  -Os 
+FAIL: gm2/switches/pim2/run/pass/modulus.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pim2/run/pass/modulus.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/pim3/run/pass/gm2.exp ...
+FAIL: gm2/switches/pim3/run/pass/modulus.mod compilation,  -g 
+FAIL: gm2/switches/pim3/run/pass/modulus.mod compilation,  -O 
+FAIL: gm2/switches/pim3/run/pass/modulus.mod compilation,  -O -g 
+FAIL: gm2/switches/pim3/run/pass/modulus.mod compilation,  -Os 
+FAIL: gm2/switches/pim3/run/pass/modulus.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pim3/run/pass/modulus.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/pim4/run/pass/gm2.exp ...
+FAIL: gm2/switches/pim4/run/pass/FpuIOBug.mod compilation,  -g 
+FAIL: gm2/switches/pim4/run/pass/FpuIOBug.mod compilation,  -O 
+FAIL: gm2/switches/pim4/run/pass/FpuIOBug.mod compilation,  -O -g 
+FAIL: gm2/switches/pim4/run/pass/FpuIOBug.mod compilation,  -Os 
+FAIL: gm2/switches/pim4/run/pass/FpuIOBug.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pim4/run/pass/FpuIOBug.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/pim4/run/pass/InOutBug.mod compilation,  -g 
+FAIL: gm2/switches/pim4/run/pass/InOutBug.mod compilation,  -O 
+FAIL: gm2/switches/pim4/run/pass/InOutBug.mod compilation,  -O -g 
+FAIL: gm2/switches/pim4/run/pass/InOutBug.mod compilation,  -Os 
+FAIL: gm2/switches/pim4/run/pass/InOutBug.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pim4/run/pass/InOutBug.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/pim4/run/pass/NumberIOBug.mod compilation,  -g 
+FAIL: gm2/switches/pim4/run/pass/NumberIOBug.mod compilation,  -O 
+FAIL: gm2/switches/pim4/run/pass/NumberIOBug.mod compilation,  -O -g 
+FAIL: gm2/switches/pim4/run/pass/NumberIOBug.mod compilation,  -Os 
+FAIL: gm2/switches/pim4/run/pass/NumberIOBug.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pim4/run/pass/NumberIOBug.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/pim4/run/pass/modulus.mod compilation,  -g 
+FAIL: gm2/switches/pim4/run/pass/modulus.mod compilation,  -O 
+FAIL: gm2/switches/pim4/run/pass/modulus.mod compilation,  -O -g 
+FAIL: gm2/switches/pim4/run/pass/modulus.mod compilation,  -Os 
+FAIL: gm2/switches/pim4/run/pass/modulus.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pim4/run/pass/modulus.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/switches/pim4/run/pass/modulus2.mod compilation,  -g 
+FAIL: gm2/switches/pim4/run/pass/modulus2.mod compilation,  -O 
+FAIL: gm2/switches/pim4/run/pass/modulus2.mod compilation,  -O -g 
+FAIL: gm2/switches/pim4/run/pass/modulus2.mod compilation,  -Os 
+FAIL: gm2/switches/pim4/run/pass/modulus2.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/switches/pim4/run/pass/modulus2.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/switches/whole-program/pass/run/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/types/run/pass/gm2.exp ...
+FAIL: gm2/types/run/pass/varient4.mod compilation,  -g 
+FAIL: gm2/types/run/pass/varient4.mod compilation,  -O 
+FAIL: gm2/types/run/pass/varient4.mod compilation,  -O -g 
+FAIL: gm2/types/run/pass/varient4.mod compilation,  -Os 
+FAIL: gm2/types/run/pass/varient4.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/types/run/pass/varient4.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+FAIL: gm2/types/run/pass/varient5.mod compilation,  -g 
+FAIL: gm2/types/run/pass/varient5.mod compilation,  -O 
+FAIL: gm2/types/run/pass/varient5.mod compilation,  -O -g 
+FAIL: gm2/types/run/pass/varient5.mod compilation,  -Os 
+FAIL: gm2/types/run/pass/varient5.mod compilation,  -O3 -fomit-frame-pointer 
+FAIL: gm2/types/run/pass/varient5.mod compilation,  -O3 -fomit-frame-pointer -finline-functions 
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/ulmlib/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/ulmlib/std/pass/gm2.exp ...
+Running /home/brian/gm2-floppsie/gcc/testsuite/gm2/ulmlib/sys/pass/gm2.exp ...
+
+		=== gm2 Summary ===
+
+# of expected passes		8236
+# of unexpected failures	2053
+# of unresolved testcases	1189
+gmake: [Makefile:4169: check-gm2] Error 1 (ignored)
