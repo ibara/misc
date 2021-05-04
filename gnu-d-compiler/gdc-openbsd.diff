@@ -1,0 +1,248 @@
+diff --git a/gcc/config/i386/openbsdelf.h b/gcc/config/i386/openbsdelf.h
+index 862ba12583f..e1116b30b87 100644
+--- a/gcc/config/i386/openbsdelf.h
++++ b/gcc/config/i386/openbsdelf.h
+@@ -75,13 +75,16 @@ along with GCC; see the file COPYING3.  If not see
+    %{shared:-shared} %{R*} \
+    %{static:-Bstatic} \
+    %{!static:-Bdynamic} \
++   %{rdynamic:-export-dynamic} \
+    %{assert*} \
+-   -dynamic-linker /usr/libexec/ld.so"
++   %{!shared:%{!-dynamic-linker:-dynamic-linker /usr/libexec/ld.so}} \
++   %{!nostdlib:-L/usr/lib}"
+ 
+ #undef STARTFILE_SPEC
+ #define STARTFILE_SPEC "\
+-	%{!shared: %{pg:gcrt0%O%s} %{!pg:%{p:gcrt0%O%s} %{!p:crt0%O%s}} \
+-	crtbegin%O%s} %{shared:crtbeginS%O%s}"
++	%{!shared: %{pg:gcrt0%O%s} %{!pg:%{p:gcrt0%O%s} \
++	%{!p:%{!static:crt0%O%s} %{static:%{nopie:crt0%O%s} \
++	%{!nopie:rcrt0%O%s}}}} crtbegin%O%s} %{shared:crtbeginS%O%s}"
+ 
+ #undef ENDFILE_SPEC
+ #define ENDFILE_SPEC "%{!shared:crtend%O%s} %{shared:crtendS%O%s}"
+diff --git a/gcc/config/openbsd.opt b/gcc/config/openbsd.opt
+index a4b9171681a..142169b04c1 100644
+--- a/gcc/config/openbsd.opt
++++ b/gcc/config/openbsd.opt
+@@ -32,4 +32,7 @@ Driver
+ pthread
+ Driver
+ 
++rdynamic
++Driver
++
+ ; This comment is to ensure we retain the blank line above.
+diff --git a/gcc/config/rs6000/driver-rs6000.c b/gcc/config/rs6000/driver-rs6000.c
+index e23c445b198..fd4aa92d889 100644
+--- a/gcc/config/rs6000/driver-rs6000.c
++++ b/gcc/config/rs6000/driver-rs6000.c
+@@ -85,6 +85,8 @@ const char *host_detect_local_cpu (int argc, const char **argv);
+ /* Returns parameters that describe L1_ASSOC associative cache of size
+    L1_SIZEKB with lines of size L1_LINE, and L2_SIZEKB.  */
+ 
++#if defined(_AIX) || defined(__APPLE__) || defined(__FreeBSD__) || defined(__linux__)
++
+ static char *
+ describe_cache (unsigned l1_sizekb, unsigned l1_line,
+ 		unsigned l1_assoc ATTRIBUTE_UNUSED, unsigned l2_sizekb)
+@@ -101,6 +103,8 @@ describe_cache (unsigned l1_sizekb, unsigned l1_line,
+   return concat (l1size, " ", line, " ", l2size, " ", NULL);
+ }
+ 
++#endif /* _AIX || __APPLE__ || __FreeBSD__ || __linux__ */
++
+ #ifdef __APPLE__
+ 
+ /* Returns the description of caches on Darwin.  */
+diff --git a/gcc/config/t-openbsd b/gcc/config/t-openbsd
+index 27a419d6093..625c764a9ff 100644
+--- a/gcc/config/t-openbsd
++++ b/gcc/config/t-openbsd
+@@ -1,5 +1,9 @@
+ # We don't need GCC's own include files.
+-USER_H = $(EXTRA_HEADERS)
++USER_H = $(srcdir)/ginclude/stdfix.h \
++	$(srcdir)/ginclude/stdnoreturn.h \
++	$(srcdir)/ginclude/stdalign.h \
++	$(srcdir)/ginclude/stdatomic.h \
++	$(EXTRA_HEADERS)
+ 
+ # OpenBSD-specific D support.
+ openbsd-d.o: $(srcdir)/config/openbsd-d.c
+diff --git a/gcc/configure b/gcc/configure
+index f03fe888384..eb7e49ba24d 100755
+--- a/gcc/configure
++++ b/gcc/configure
+@@ -31857,7 +31857,7 @@ if ${gcc_cv_c_no_fpie+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   saved_CXXFLAGS="$CXXFLAGS"
+-   CXXFLAGS="$CXXFLAGS -fno-PIE"
++   CXXFLAGS="$CXXFLAGS"
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ int main(void) {return 0;}
+@@ -31873,7 +31873,7 @@ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $gcc_cv_c_no_fpie" >&5
+ $as_echo "$gcc_cv_c_no_fpie" >&6; }
+ if test "$gcc_cv_c_no_fpie" = "yes"; then
+-  NO_PIE_CFLAGS="-fno-PIE"
++  NO_PIE_CFLAGS=""
+ fi
+ 
+ 
+@@ -31884,7 +31884,7 @@ if ${gcc_cv_no_pie+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   saved_LDFLAGS="$LDFLAGS"
+-   LDFLAGS="$LDFLAGS -no-pie"
++   LDFLAGS="$LDFLAGS"
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ int main(void) {return 0;}
+@@ -31901,7 +31901,7 @@ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $gcc_cv_no_pie" >&5
+ $as_echo "$gcc_cv_no_pie" >&6; }
+ if test "$gcc_cv_no_pie" = "yes"; then
+-  NO_PIE_FLAG="-no-pie"
++  NO_PIE_FLAG=""
+ fi
+ 
+ 
+diff --git a/libphobos/configure.tgt b/libphobos/configure.tgt
+index 88c027d0c28..8a3b070ae2a 100644
+--- a/libphobos/configure.tgt
++++ b/libphobos/configure.tgt
+@@ -61,6 +61,9 @@ case "${target}" in
+   x86_64-*-netbsd* | i?86-*-netbsd*)
+ 	LIBPHOBOS_SUPPORTED=yes
+ 	;;
++  x86_64-*-openbsd* | i?86-*-openbsd*)
++	LIBPHOBOS_SUPPORTED=yes
++	;;
+   x86_64-*-solaris2.11* | i?86-*-solaris2.11*)
+ 	LIBPHOBOS_SUPPORTED=yes
+ 	;;
+diff --git a/libphobos/libdruntime/core/runtime.d b/libphobos/libdruntime/core/runtime.d
+index 848b607ae69..0cc81abc48f 100644
+--- a/libphobos/libdruntime/core/runtime.d
++++ b/libphobos/libdruntime/core/runtime.d
+@@ -464,6 +464,8 @@ extern (C) bool runModuleUnitTests()
+         import core.sys.freebsd.execinfo;
+     else version (NetBSD)
+         import core.sys.netbsd.execinfo;
++    else version (OpenBSD)
++        import core.sys.openbsd.execinfo;
+     else version (DragonFlyBSD)
+         import core.sys.dragonflybsd.execinfo;
+     else version (Windows)
+@@ -595,6 +597,8 @@ Throwable.TraceInfo defaultTraceHandler( void* ptr = null )
+         import core.sys.freebsd.execinfo;
+     else version (NetBSD)
+         import core.sys.netbsd.execinfo;
++    else version (OpenBSD)
++        import core.sys.openbsd.execinfo;
+     else version (DragonFlyBSD)
+         import core.sys.dragonflybsd.execinfo;
+     else version (Windows)
+@@ -842,6 +846,18 @@ Throwable.TraceInfo defaultTraceHandler( void* ptr = null )
+                         symEnd = eptr - buf.ptr;
+                     }
+                 }
++                else version (OpenBSD)
++                {
++                    // format is: 0x00000000 <_D6module4funcAFZv+0x78> at module
++                    auto bptr = cast(char*) memchr( buf.ptr, '<', buf.length );
++                    auto eptr = cast(char*) memchr( buf.ptr, '+', buf.length );
++
++                    if ( bptr++ && eptr )
++                    {
++                        symBeg = bptr - buf.ptr;
++                        symEnd = eptr - buf.ptr;
++                    }
++                }
+                 else version (DragonFlyBSD)
+                 {
+                     // format is: 0x00000000 <_D6module4funcAFZv+0x78> at module
+diff --git a/libphobos/libdruntime/core/sys/openbsd/dlfcn.d b/libphobos/libdruntime/core/sys/openbsd/dlfcn.d
+index a8e8565cb48..665d1159d52 100644
+--- a/libphobos/libdruntime/core/sys/openbsd/dlfcn.d
++++ b/libphobos/libdruntime/core/sys/openbsd/dlfcn.d
+@@ -21,6 +21,9 @@ enum RTLD_NEXT    = cast(void *)-1;
+ enum RTLD_DEFAULT = cast(void *)-2;
+ enum RTLD_SELF    = cast(void *)-3;
+ 
++enum RTLD_NOLOAD     = 0;
++enum RTLD_DI_LINKMAP = 0;
++
+ enum DL_GETERRNO     = 1;
+ enum DL_SETTHREADLCK = 2;
+ enum DL_SETBINDLCK   = 3;
+@@ -28,3 +31,8 @@ enum DL_SETBINDLCK   = 3;
+ enum DL_LAZY         = RTLD_LAZY;
+ 
+ int dlctl(void *, int, void *);
++
++int dlinfo(void *handle, int request, void *p) nothrow @nogc
++{
++    return 0;
++}
+diff --git a/libphobos/libdruntime/core/thread/osthread.d b/libphobos/libdruntime/core/thread/osthread.d
+index 9fcd30e50fb..1ee9972c131 100644
+--- a/libphobos/libdruntime/core/thread/osthread.d
++++ b/libphobos/libdruntime/core/thread/osthread.d
+@@ -1428,19 +1428,6 @@ in (fn)
+             }
+             sp = cast(void*)&regs[0];
+         }
+-        else version (X86_64)
+-        {
+-            void*[5] regs = void;
+-            asm pure nothrow @nogc
+-            {
+-                "movq   %%rbx, %0" : "=m" (regs[0]);
+-                "movq   %%r12, %0" : "=m" (regs[1]);
+-                "movq   %%r13, %0" : "=m" (regs[2]);
+-                "movq   %%r14, %0" : "=m" (regs[3]);
+-                "movq   %%r15, %0" : "=m" (regs[4]);
+-            }
+-            sp = cast(void*)&regs[0];
+-        }
+         else version (PPC)
+         {
+             void*[19] regs = void;
+diff --git a/libphobos/src/std/process.d b/libphobos/src/std/process.d
+index 9cbeca8e9a8..63ec49365b9 100644
+--- a/libphobos/src/std/process.d
++++ b/libphobos/src/std/process.d
+@@ -887,7 +887,7 @@ version (Windows) @system unittest
+ // Searches the PATH variable for the given executable file,
+ // (checking that it is in fact executable).
+ version (Posix)
+-private string searchPathFor(in char[] executable)
++package(std) string searchPathFor(in char[] executable)
+     @trusted //TODO: @safe nothrow
+ {
+     import std.algorithm.iteration : splitter;
+diff --git a/libphobos/src/std/system.d b/libphobos/src/std/system.d
+index 353d692848a..480338d95c0 100644
+--- a/libphobos/src/std/system.d
++++ b/libphobos/src/std/system.d
+@@ -35,6 +35,7 @@ immutable
+         watchOS,   /// watchOS
+         freeBSD,   /// FreeBSD
+         netBSD,    /// NetBSD
++        openBSD,   /// OpenBSD
+         dragonFlyBSD, /// DragonFlyBSD
+         solaris,   /// Solaris
+         android,   /// Android
+@@ -52,6 +53,7 @@ immutable
+     else version (watchOS) OS os = OS.watchOS;
+     else version (FreeBSD) OS os = OS.freeBSD;
+     else version (NetBSD)  OS os = OS.netBSD;
++    else version (OpenBSD) OS os = OS.openBSD;
+     else version (DragonFlyBSD) OS os = OS.dragonFlyBSD;
+     else version (Posix)   OS os = OS.otherPosix;
+     else static assert(0, "Unknown OS.");
