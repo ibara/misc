@@ -1,0 +1,459 @@
+diff --git a/gcc/common/config/aarch64/aarch64-common.c b/gcc/common/config/aarch64/aarch64-common.c
+index 6d200a18660..cab078320f3 100644
+--- a/gcc/common/config/aarch64/aarch64-common.c
++++ b/gcc/common/config/aarch64/aarch64-common.c
+@@ -47,8 +47,6 @@
+ /* Set default optimization options.  */
+ static const struct default_options aarch_option_optimization_table[] =
+   {
+-    /* Enable section anchors by default at -O1 or higher.  */
+-    { OPT_LEVELS_1_PLUS, OPT_fsection_anchors, NULL, 1 },
+     /* Disable fomit-frame-pointer by default.  */
+     { OPT_LEVELS_ALL, OPT_fomit_frame_pointer, NULL, 0 },
+     /* Enable -fsched-pressure by default when optimizing.  */
+diff --git a/gcc/config.gcc b/gcc/config.gcc
+index 92fad8e20ca..39cb30b3be9 100644
+--- a/gcc/config.gcc
++++ b/gcc/config.gcc
+@@ -1097,6 +1097,13 @@ aarch64*-*-netbsd*)
+ 	tmake_file="${tmake_file} aarch64/t-aarch64 aarch64/t-aarch64-netbsd"
+ 	extra_options="${extra_options} netbsd.opt netbsd-elf.opt"
+ 	;;
++aarch64*-*-openbsd*)
++	tm_file="${tm_file} dbxelf.h elfos.h"
++	tm_file="${tm_file} aarch64/aarch64-elf.h aarch64/aarch64-errata.h openbsd-stdint.h"
++	tm_file="${tm_file} openbsd.h aarch64/openbsd.h openbsd-libpthread.h"
++	tmake_file="${tmake_file} aarch64/t-aarch64"
++	extra_options="${extra_options} openbsd.opt"
++	;;
+ aarch64*-*-linux*)
+ 	tm_file="${tm_file} dbxelf.h elfos.h gnu-user.h linux.h glibc-stdint.h"
+ 	tm_file="${tm_file} aarch64/aarch64-elf.h aarch64/aarch64-errata.h aarch64/aarch64-linux.h"
+diff --git a/gcc/config/aarch64/aarch64.h b/gcc/config/aarch64/aarch64.h
+index bfffbcd6abf..0e62da58947 100644
+--- a/gcc/config/aarch64/aarch64.h
++++ b/gcc/config/aarch64/aarch64.h
+@@ -109,7 +109,7 @@
+ 
+ /* Emit calls to libgcc helpers for atomic operations for runtime detection
+    of LSE instructions.  */
+-#define TARGET_OUTLINE_ATOMICS (aarch64_flag_outline_atomics)
++#define TARGET_OUTLINE_ATOMICS (0)
+ 
+ /* Align definitions of arrays, unions and structures so that
+    initializations and copies can be made more efficient.  This is not
+diff --git a/gcc/config/aarch64/openbsd.h b/gcc/config/aarch64/openbsd.h
+new file mode 100644
+index 00000000000..1ecfdfd29b4
+--- /dev/null
++++ b/gcc/config/aarch64/openbsd.h
+@@ -0,0 +1,116 @@
++/* Definitions of target machine for GNU compiler, OpenBSD/aarch64 ELF version.
++   Copyright (C) 2002 Free Software Foundation, Inc.
++
++This file is part of GNU CC.
++
++GNU CC is free software; you can redistribute it and/or modify
++it under the terms of the GNU General Public License as published by
++the Free Software Foundation; either version 2, or (at your option)
++any later version.
++
++GNU CC is distributed in the hope that it will be useful,
++but WITHOUT ANY WARRANTY; without even the implied warranty of
++MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++GNU General Public License for more details.
++
++You should have received a copy of the GNU General Public License
++along with GNU CC; see the file COPYING.  If not, write to
++the Free Software Foundation, 59 Temple Place - Suite 330,
++Boston, MA 02111-1307, USA.  */
++
++/* Run-time Target Specification.  */
++//#undef TARGET_VERSION
++//#define TARGET_VERSION fputs (" (OpenBSD/arm)", stderr);
++
++/* This is used in ASM_FILE_START.  */
++//#undef ARM_OS_NAME
++//#define ARM_OS_NAME "OpenBSD"
++
++/* This defaults us to little-endian.  */
++#ifndef TARGET_ENDIAN_DEFAULT
++#define TARGET_ENDIAN_DEFAULT 0
++#endif
++
++#undef MULTILIB_DEFAULTS
++
++#define TARGET_OS_CPP_BUILTINS()	\
++  do					\
++    {					\
++      builtin_define ("__GXX_MERGED_TYPEINFO_NAMES=0"); \
++      OPENBSD_OS_CPP_BUILTINS_ELF();	\
++    }					\
++  while (0)
++
++#undef SUBTARGET_CPP_SPEC
++#define SUBTARGET_CPP_SPEC OBSD_CPP_SPEC
++
++#define LINK_SPEC \
++  "%{!shared:%{!nostdlib:%{!r:%{!e*:-e __start}}}} \
++   %{shared:-shared} %{R*} \
++   %{static:-Bstatic} \
++   %{!static:-Bdynamic} \
++   %{rdynamic:-export-dynamic} \
++   %{assert*} \
++   %{!static:-dynamic-linker /usr/libexec/ld.so} \
++   %{!nostdlib:-L/usr/lib}"
++
++#define OPENBSD_ENTRY_POINT "__start"
++
++/* Make GCC agree with <machine/_types.h>.  */
++
++#undef SIZE_TYPE
++#define SIZE_TYPE "long unsigned int"
++
++#undef PTRDIFF_TYPE
++#define PTRDIFF_TYPE "long int"
++
++#undef INTMAX_TYPE
++#define INTMAX_TYPE "long long int"
++
++#undef UINTMAX_TYPE
++#define UINTMAX_TYPE "long long unsigned int"
++
++#undef WCHAR_TYPE
++#define WCHAR_TYPE "int"
++
++#undef WCHAR_TYPE_SIZE
++#define WCHAR_TYPE_SIZE 32
++
++/* Provide a STARTFILE_SPEC appropriate for OpenBSD ELF.  Here we
++   provide support for the special GCC option -static.  On ELF
++   targets, we also add the crtbegin.o file, which provides part
++   of the support for getting C++ file-scope static objects
++   constructed before entering "main".  */
++
++#define OPENBSD_STARTFILE_SPEC	\
++  "%{!shared:			\
++     %{pg:gcrt0%O%s}		\
++     %{!pg:			\
++       %{p:gcrt0%O%s}		\
++       %{!p:%{!static:crt0%O%s} %{static:%{nopie:crt0%O%s} \
++        %{!nopie:rcrt0%O%s}}}}} \
++   %:if-exists(crti%O%s)	\
++   %{static:%:if-exists-else(crtbeginT%O%s crtbegin%O%s)} \
++   %{!static: \
++     %{!shared:crtbegin%O%s} %{shared:crtbeginS%O%s}}"
++
++#undef STARTFILE_SPEC
++#define STARTFILE_SPEC OPENBSD_STARTFILE_SPEC
++
++/* Provide an ENDFILE_SPEC appropriate for OpenBSD ELF.  Here we
++add crtend.o, which provides part of the support for getting
++C++ file-scope static objects deconstructed after exiting "main".  */
++
++#define OPENBSD_ENDFILE_SPEC     \
++  "%{!shared:crtend%O%s} %{shared:crtendS%O%s} \
++   %:if-exists(crtn%O%s)"
++
++#undef ENDFILE_SPEC
++#define ENDFILE_SPEC OPENBSD_ENDFILE_SPEC
++
++/* Remove -mcpu=native handling which is Linux specific */
++#undef DRIVER_SELF_SPECS
++#define DRIVER_SELF_SPECS ""
++
++/* dito */
++#undef EXTRA_SPEC_FUNCTIONS
+diff --git a/gcc/config/i386/openbsdelf.h b/gcc/config/i386/openbsdelf.h
+index 862ba12583f..e1116b30b87 100644
+--- a/gcc/config/i386/openbsdelf.h
++++ b/gcc/config/i386/openbsdelf.h
+@@ -75,13 +75,16 @@ along with GCC; see the file COPYING3.  If not see
+    %{shared:-shared} %{R*} \
+    %{static:-Bstatic} \
+    %{!static:-Bdynamic} \
++   %{rdynamic:-export-dynamic} \
+    %{assert*} \
+-   -dynamic-linker /usr/libexec/ld.so"
++   %{!shared:%{!-dynamic-linker:-dynamic-linker /usr/libexec/ld.so}} \
++   %{!nostdlib:-L/usr/lib}"
+ 
+ #undef STARTFILE_SPEC
+ #define STARTFILE_SPEC "\
+-	%{!shared: %{pg:gcrt0%O%s} %{!pg:%{p:gcrt0%O%s} %{!p:crt0%O%s}} \
+-	crtbegin%O%s} %{shared:crtbeginS%O%s}"
++	%{!shared: %{pg:gcrt0%O%s} %{!pg:%{p:gcrt0%O%s} \
++	%{!p:%{!static:crt0%O%s} %{static:%{nopie:crt0%O%s} \
++	%{!nopie:rcrt0%O%s}}}} crtbegin%O%s} %{shared:crtbeginS%O%s}"
+ 
+ #undef ENDFILE_SPEC
+ #define ENDFILE_SPEC "%{!shared:crtend%O%s} %{shared:crtendS%O%s}"
+diff --git a/gcc/config/openbsd.opt b/gcc/config/openbsd.opt
+index a4b9171681a..142169b04c1 100644
+--- a/gcc/config/openbsd.opt
++++ b/gcc/config/openbsd.opt
+@@ -32,4 +32,7 @@ Driver
+ pthread
+ Driver
+ 
++rdynamic
++Driver
++
+ ; This comment is to ensure we retain the blank line above.
+diff --git a/gcc/config/rs6000/driver-rs6000.c b/gcc/config/rs6000/driver-rs6000.c
+index e23c445b198..fd4aa92d889 100644
+--- a/gcc/config/rs6000/driver-rs6000.c
++++ b/gcc/config/rs6000/driver-rs6000.c
+@@ -85,6 +85,8 @@ const char *host_detect_local_cpu (int argc, const char **argv);
+ /* Returns parameters that describe L1_ASSOC associative cache of size
+    L1_SIZEKB with lines of size L1_LINE, and L2_SIZEKB.  */
+ 
++#if defined(_AIX) || defined(__APPLE__) || defined(__FreeBSD__) || defined(__linux__)
++
+ static char *
+ describe_cache (unsigned l1_sizekb, unsigned l1_line,
+ 		unsigned l1_assoc ATTRIBUTE_UNUSED, unsigned l2_sizekb)
+@@ -101,6 +103,8 @@ describe_cache (unsigned l1_sizekb, unsigned l1_line,
+   return concat (l1size, " ", line, " ", l2size, " ", NULL);
+ }
+ 
++#endif /* _AIX || __APPLE__ || __FreeBSD__ || __linux__ */
++
+ #ifdef __APPLE__
+ 
+ /* Returns the description of caches on Darwin.  */
+diff --git a/gcc/config/t-openbsd b/gcc/config/t-openbsd
+index 27a419d6093..625c764a9ff 100644
+--- a/gcc/config/t-openbsd
++++ b/gcc/config/t-openbsd
+@@ -1,5 +1,9 @@
+ # We don't need GCC's own include files.
+-USER_H = $(EXTRA_HEADERS)
++USER_H = $(srcdir)/ginclude/stdfix.h \
++	$(srcdir)/ginclude/stdnoreturn.h \
++	$(srcdir)/ginclude/stdalign.h \
++	$(srcdir)/ginclude/stdatomic.h \
++	$(EXTRA_HEADERS)
+ 
+ # OpenBSD-specific D support.
+ openbsd-d.o: $(srcdir)/config/openbsd-d.c
+diff --git a/gcc/configure b/gcc/configure
+index 4a9e4fa08ab..9344daf5360 100755
+--- a/gcc/configure
++++ b/gcc/configure
+@@ -31845,7 +31845,7 @@ if ${gcc_cv_c_no_fpie+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   saved_CXXFLAGS="$CXXFLAGS"
+-   CXXFLAGS="$CXXFLAGS -fno-PIE"
++   CXXFLAGS="$CXXFLAGS"
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ int main(void) {return 0;}
+@@ -31861,7 +31861,7 @@ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $gcc_cv_c_no_fpie" >&5
+ $as_echo "$gcc_cv_c_no_fpie" >&6; }
+ if test "$gcc_cv_c_no_fpie" = "yes"; then
+-  NO_PIE_CFLAGS="-fno-PIE"
++  NO_PIE_CFLAGS=""
+ fi
+ 
+ 
+@@ -31872,7 +31872,7 @@ if ${gcc_cv_no_pie+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   saved_LDFLAGS="$LDFLAGS"
+-   LDFLAGS="$LDFLAGS -no-pie"
++   LDFLAGS="$LDFLAGS"
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ int main(void) {return 0;}
+@@ -31889,7 +31889,7 @@ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $gcc_cv_no_pie" >&5
+ $as_echo "$gcc_cv_no_pie" >&6; }
+ if test "$gcc_cv_no_pie" = "yes"; then
+-  NO_PIE_FLAG="-no-pie"
++  NO_PIE_FLAG=""
+ fi
+ 
+ 
+diff --git a/libgcc/config.host b/libgcc/config.host
+index f808b61be70..c81562e6852 100644
+--- a/libgcc/config.host
++++ b/libgcc/config.host
+@@ -377,6 +377,11 @@ aarch64*-*-netbsd*)
+ 	tmake_file="${tmake_file} ${cpu_type}/t-softfp t-softfp t-crtfm"
+ 	md_unwind_header=aarch64/aarch64-unwind.h
+ 	;;
++aarch64*-*-openbsd*)
++	tmake_file="${tmake_file} ${cpu_type}/t-aarch64"
++	tmake_file="${tmake_file} ${cpu_type}/t-softfp t-softfp t-crtfm"
++	md_unwind_header=aarch64/aarch64-unwind.h
++	;;
+ aarch64*-*-fuchsia*)
+ 	tmake_file="${tmake_file} ${cpu_type}/t-aarch64"
+ 	tmake_file="${tmake_file} ${cpu_type}/t-lse t-slibgcc-libgcc"
+diff --git a/libphobos/configure.tgt b/libphobos/configure.tgt
+index 88c027d0c28..e8d7045464f 100644
+--- a/libphobos/configure.tgt
++++ b/libphobos/configure.tgt
+@@ -30,6 +30,9 @@ case "${target}" in
+   aarch64*-*-linux*)
+ 	LIBPHOBOS_SUPPORTED=yes
+ 	;;
++  aarch64*-*-openbsd*)
++	LIBPHOBOS_SUPPORTED=yes
++	;;
+   arm*-*-linux*)
+ 	LIBPHOBOS_SUPPORTED=yes
+ 	;;
+@@ -61,6 +64,9 @@ case "${target}" in
+   x86_64-*-netbsd* | i?86-*-netbsd*)
+ 	LIBPHOBOS_SUPPORTED=yes
+ 	;;
++  x86_64-*-openbsd* | i?86-*-openbsd*)
++	LIBPHOBOS_SUPPORTED=yes
++	;;
+   x86_64-*-solaris2.11* | i?86-*-solaris2.11*)
+ 	LIBPHOBOS_SUPPORTED=yes
+ 	;;
+diff --git a/libphobos/libdruntime/core/runtime.d b/libphobos/libdruntime/core/runtime.d
+index 848b607ae69..0cc81abc48f 100644
+--- a/libphobos/libdruntime/core/runtime.d
++++ b/libphobos/libdruntime/core/runtime.d
+@@ -464,6 +464,8 @@ extern (C) bool runModuleUnitTests()
+         import core.sys.freebsd.execinfo;
+     else version (NetBSD)
+         import core.sys.netbsd.execinfo;
++    else version (OpenBSD)
++        import core.sys.openbsd.execinfo;
+     else version (DragonFlyBSD)
+         import core.sys.dragonflybsd.execinfo;
+     else version (Windows)
+@@ -595,6 +597,8 @@ Throwable.TraceInfo defaultTraceHandler( void* ptr = null )
+         import core.sys.freebsd.execinfo;
+     else version (NetBSD)
+         import core.sys.netbsd.execinfo;
++    else version (OpenBSD)
++        import core.sys.openbsd.execinfo;
+     else version (DragonFlyBSD)
+         import core.sys.dragonflybsd.execinfo;
+     else version (Windows)
+@@ -842,6 +846,18 @@ Throwable.TraceInfo defaultTraceHandler( void* ptr = null )
+                         symEnd = eptr - buf.ptr;
+                     }
+                 }
++                else version (OpenBSD)
++                {
++                    // format is: 0x00000000 <_D6module4funcAFZv+0x78> at module
++                    auto bptr = cast(char*) memchr( buf.ptr, '<', buf.length );
++                    auto eptr = cast(char*) memchr( buf.ptr, '+', buf.length );
++
++                    if ( bptr++ && eptr )
++                    {
++                        symBeg = bptr - buf.ptr;
++                        symEnd = eptr - buf.ptr;
++                    }
++                }
+                 else version (DragonFlyBSD)
+                 {
+                     // format is: 0x00000000 <_D6module4funcAFZv+0x78> at module
+diff --git a/libphobos/libdruntime/core/sys/openbsd/dlfcn.d b/libphobos/libdruntime/core/sys/openbsd/dlfcn.d
+index a8e8565cb48..665d1159d52 100644
+--- a/libphobos/libdruntime/core/sys/openbsd/dlfcn.d
++++ b/libphobos/libdruntime/core/sys/openbsd/dlfcn.d
+@@ -21,6 +21,9 @@ enum RTLD_NEXT    = cast(void *)-1;
+ enum RTLD_DEFAULT = cast(void *)-2;
+ enum RTLD_SELF    = cast(void *)-3;
+ 
++enum RTLD_NOLOAD     = 0;
++enum RTLD_DI_LINKMAP = 0;
++
+ enum DL_GETERRNO     = 1;
+ enum DL_SETTHREADLCK = 2;
+ enum DL_SETBINDLCK   = 3;
+@@ -28,3 +31,8 @@ enum DL_SETBINDLCK   = 3;
+ enum DL_LAZY         = RTLD_LAZY;
+ 
+ int dlctl(void *, int, void *);
++
++int dlinfo(void *handle, int request, void *p) nothrow @nogc
++{
++    return 0;
++}
+diff --git a/libphobos/libdruntime/core/sys/posix/setjmp.d b/libphobos/libdruntime/core/sys/posix/setjmp.d
+index b98d321a883..91e3a19d081 100644
+--- a/libphobos/libdruntime/core/sys/posix/setjmp.d
++++ b/libphobos/libdruntime/core/sys/posix/setjmp.d
+@@ -261,6 +261,10 @@ else version (OpenBSD)
+     {
+         enum _JBLEN = 64;
+     }
++    else version (AArch64)
++    {
++        enum _JBLEN = 64;
++    }
+     else version (PPC)
+     {
+         enum _JBLEN = 100;
+diff --git a/libphobos/src/std/system.d b/libphobos/src/std/system.d
+index 353d692848a..480338d95c0 100644
+--- a/libphobos/src/std/system.d
++++ b/libphobos/src/std/system.d
+@@ -35,6 +35,7 @@ immutable
+         watchOS,   /// watchOS
+         freeBSD,   /// FreeBSD
+         netBSD,    /// NetBSD
++        openBSD,   /// OpenBSD
+         dragonFlyBSD, /// DragonFlyBSD
+         solaris,   /// Solaris
+         android,   /// Android
+@@ -52,6 +53,7 @@ immutable
+     else version (watchOS) OS os = OS.watchOS;
+     else version (FreeBSD) OS os = OS.freeBSD;
+     else version (NetBSD)  OS os = OS.netBSD;
++    else version (OpenBSD) OS os = OS.openBSD;
+     else version (DragonFlyBSD) OS os = OS.dragonFlyBSD;
+     else version (Posix)   OS os = OS.otherPosix;
+     else static assert(0, "Unknown OS.");
+diff --git a/libssp/gets-chk.c b/libssp/gets-chk.c
+index 47a58e19b48..be0bc47b4e5 100644
+--- a/libssp/gets-chk.c
++++ b/libssp/gets-chk.c
+@@ -58,6 +58,24 @@ extern char *gets (char *);
+ 
+ extern void __chk_fail (void) __attribute__((__noreturn__));
+ 
++char *
++gets(char *buf)
++{
++  int c;
++  char *s;
++
++  for (s = buf; (c = getchar_unlocked()) != '\n';)
++    if (c == EOF)
++      if (s == buf)
++       return (NULL);
++      else
++       break;
++    else
++      *s++ = c;
++  *s = '\0';
++  return (buf);
++}
++
+ char *
+ __gets_chk (char *s, size_t slen)
+ {
+diff --git a/libssp/ssp.map b/libssp/ssp.map
+index 34de964e368..278f43f18b1 100644
+--- a/libssp/ssp.map
++++ b/libssp/ssp.map
+@@ -17,6 +17,7 @@ LIBSSP_1.0 {
+     __strncpy_chk;
+     __vsnprintf_chk;
+     __vsprintf_chk;
++    gets;
+   local:
+     *;
+ };
